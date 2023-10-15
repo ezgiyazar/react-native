@@ -1,12 +1,9 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
 
-import React from "react"
+
+import React, { useState } from "react"
 import {
+  Button,
+  Linking,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -24,124 +21,143 @@ import {
   ReloadInstructions
 } from "react-native/Libraries/NewAppScreen"
 
-// function Section({ children, title }) {
-//   const isDarkMode = useColorScheme() === "dark"
-//   return (
-//     <View style={styles.sectionContainer}>
-//       <Text
-//         style={[
-//           styles.sectionTitle,
-//           {
-//             color: isDarkMode ? Colors.white : Colors.black
-//           }
-//         ]}
-//       >
-//         {title}
-//       </Text>
-//       <Text
-//         style={[
-//           styles.sectionDescription,
-//           {
-//             color: isDarkMode ? Colors.light : Colors.dark
-//           }
-//         ]}
-//       >
-//         {children}
-//       </Text>
-//     </View>
-//   )
-// }
-
 const App = () => {
-  const isDarkMode = useColorScheme() === "dark"
+  //  const [name, setName] = useState('Ezgi')
+  //  const [session, setSession] = useState({ number: 6, title: 'state'})
+  //  const [current, setCurrent] = useState(true)
+  const [number, setNumber] = useState(0)
+  const [counter, setCounter] = useState(0)
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter
+  const onClickHandler = () => {
+    setCounter(counter + 1)
+    setNumber(number + 5)
   }
 
   return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={styles.scrollView}>
-        <Header />
-        {global.HermesInternal == null ? null : (
-          <View style={styles.engine}>
-            <Text style={styles.footer}>Engine: Hermes</Text>
-          </View>
-        )}
-        <View style={styles.body}>
-          <View style={styles.sectionContainer}>
-            <Text style={styles.sectionTitle}>Step One</Text>
-            <Text style={styles.sectionDescription}>
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-            </Text>
-          </View>
-          <View style={styles.sectionContainer}>
-            <Text style={styles.sectionTitle}>See Your My Changes</Text>
-            <Text style={styles.sectionDescription}>
-            <ReloadInstructions />
-            </Text>
-          </View>
-          <View style={styles.sectionContainer}>
-            <Text style={styles.sectionTitle}>Debugg</Text>
-            <Text style={styles.sectionDescription}>
-            <DebugInstructions />
-            </Text>
-          </View>
-          <View style={styles.sectionContainer}>
-            <Text style={styles.sectionTitle}>Learn More</Text>
-            <Text style={styles.sectionDescription}>
-             Read The docst to discover what to do next:
-            </Text>
-          </View>
-          <LearnMoreLinks />
+    <View style={styles.body}>
+      <View style={styles.row1}>
+        <View style={styles.view1}>
+          <Text style={styles.text}>1</Text>
         </View>
-      </ScrollView>
-    </SafeAreaView>
-    </>
+        <View style={styles.view2}>
+          <Text style={styles.text}>2</Text>
+        </View>
+        <View style={styles.view3}>
+          <Text style={styles.text}>3</Text>
+        </View>
+      </View>
+      <View style={styles.row2}>
+        <View style={styles.view4}>
+          <Text style={styles.text}>4</Text>
+        </View>
+      </View>
+      <View style={styles.row3}>
+      <View style={styles.view5}>
+          <Text style={styles.text}>5</Text>
+        </View>
+      </View>
+      <View style={styles.row4}>
+      <View style={styles.view6}>
+          <Text style={styles.text}>6</Text>
+        </View>
+        <View style={styles.view7}>
+          <Text style={styles.text}>7</Text>
+        </View>
+      </View>
+
+
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter
-  },
-  engine: {
-    position: 'absolute',
-    right: 0
-  },
   body: {
-    backgroundColor: Colors.white
+    flex: 1,
+    //width: 300 // '100%'
+    //height: 150 // '50%'
+    backgroundColor: "#ff55aa",
+    alignItems: 'strech',
+    justifyContent: 'center',
+    flexDirection: 'column'
+    // borderWidth: 5,
+    // borderColor: '#551111',
+    // borderRadius: 5,
+    // margin: 40
   },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24
+  row1: {
+    flex: 1,
+    backgroundColor: "#00ffff",
+    alignItems: 'strech',
+    justifyContent: 'center',
+    flexDirection: 'row'
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: "600",
-    color: Colors.black
+  row2: {
+    flex: 1,
+    backgroundColor: "#ff0000",
+    alignItems: 'center',
+    justifyContent: 'center',
+
   },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: "400",
-    color: Colors.black
+  row3: {
+    flex: 1,
+    backgroundColor: "#00ff00",
+    alignItems: 'center',
+    justifyContent: 'center'
   },
-  highlight: {
-    fontWeight: "700"
+  row4: {
+    flex: 7,
+    backgroundColor: "#ffffff",
+    alignItems: 'strech',
+    justifyContent: 'center',
+    flexDirection: 'row',
   },
-  footer: {
-    color: Colors.blacj,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right'
+  view1: {
+    flex: 1,
+    backgroundColor: "#00ffff",
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  view2: {
+    flex: 2,
+    backgroundColor: "#ff00ff",
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  view3: {
+    flex: 3,
+    backgroundColor: "#ffff00",
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  view4: {
+    flex: 1,
+    backgroundColor: "#ff0000",
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  view5: {
+    flex: 1,
+    backgroundColor: "#00ff00",
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  view6: {
+    flex: 1,
+    backgroundColor: "#ffffff",
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  view7: {
+    flex: 1,
+    backgroundColor: "#0000ff",
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  text: {
+    color: '#000000',
+    fontSize: 20,
+    fontStyle: 'italic',
+    margin: 10
   }
 })
 
